@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import UserForm from "./UserForm";
 import UserInfo from "./UserInfo";
-import RepoList from "./RepoList";
+
 
 class App extends Component {
   state = {
@@ -59,10 +59,15 @@ class App extends Component {
               onSubmit={this.handleSubmit}
             />
             {error && <p className="error">{error}</p>}
-            {userData && (
-              <UserInfo userData={userData} onReset={this.handleReset} />
-            )}
-            {repos.length > 0 && <RepoList repos={repos} />}
+{userData && (
+  <UserInfo
+    userData={userData}
+    repos={repos}
+    onReset={this.handleReset}
+  />
+)}
+
+          
           </div>
         </header>
       </div>
